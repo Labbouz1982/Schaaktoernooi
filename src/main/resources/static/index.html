@@ -1,9 +1,21 @@
+<html>
+<head>
+
+<style>
+            div{
+                background-color:    lightgreen;
+                padding        :          6px;
+                margin        :          6px;
+            }
 
 
+            body{
+                background-color: orange;
+            }
+        </style>
 
+</head>
 
-
-<div id="naamschaker">antwoord</div>
 
 
 
@@ -23,7 +35,7 @@
 
 <input type="button" onclick="viapostversturen()" value="voeg een schaker toe">
 
-<button id="geefalleschakers" >Toon Alle Schakers</button>
+<button id="toonalleschakers" >Toon Alle Schakers</button>
 
 <div id="alleschakerstabel" > alle schakers tabel </div>
 
@@ -123,6 +135,7 @@
 
        $('#naamschaker').html(antwoordserver.achternaam);
 
+
     }
 
     function ophaalfunctie(antwoordserverschakers){
@@ -130,10 +143,13 @@
       $('#alleschakerstabel').html(antwoordserverschakers);
 
       var opbouwString = "<table border=1>";
+      var opbouwString = "<table border=1>";
+
 
       for( i = 0 ; i < antwoordserverschakers.length ; i++ ){
 
        opbouwString += "<tr><td>"+antwoordserverschakers[i].achternaam+"</td></tr>";
+
 
       }
 

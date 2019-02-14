@@ -28,7 +28,7 @@ public class SchakerEndpoint {
 
     }
 
-    @GetMapping("geefalleschakers")
+    @GetMapping("toonalleschakers")
 
     public Iterable<Schaker> geefAlleSchakers() {
 
