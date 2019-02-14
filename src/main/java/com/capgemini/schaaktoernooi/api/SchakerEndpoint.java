@@ -4,9 +4,7 @@ package com.capgemini.schaaktoernooi.api;
 import com.capgemini.schaaktoernooi.controller.SchaakRepository;
 import com.capgemini.schaaktoernooi.model.Schaker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SchakerEndpoint {
@@ -30,7 +28,7 @@ public class SchakerEndpoint {
 
     }
 
-    @GetMapping("geefalleSchakers")
+    @GetMapping("geefalleschakers")
 
     public Iterable<Schaker> geefAlleSchakers() {
 
@@ -38,4 +36,17 @@ public class SchakerEndpoint {
 
 
     }
+
+
+    @PostMapping("nieuwschaker")
+
+    public String SchakerMaken(@RequestBody Schaker schaken){
+
+        mijnSchaakRepository.save(schaken);
+
+        return "het is gelukt";
+
+    }
+
 }
+
