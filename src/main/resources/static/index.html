@@ -1,0 +1,139 @@
+
+
+
+
+<button id="schaker"  >Voeg een schaker toe</button>
+
+<input type="text" id="vakjesnaam1" value="vul voornaam schaker in">
+<input type="text" id="vakjesnaam2" value="vul achternaam schaker in">
+<input type="date" id="vakjesnaam3" value="vul geboortedatum schaker in">
+<input type="number" id="vakjesnaam4" value="aantal gewonnen partijen">
+<input type="number" id="vakjesnaam5" value="aantal gelijkspel partijen">
+<input type="number" id="vakjesnaam6" value="aantal verloren partijen">
+
+<div id="naamschaker">antwoord</div>
+
+
+
+<button id="toonalleschakers" >Toon Alle Schakers</button>
+
+<div id="alleschakerstabel" > alle schakers tabel </div>
+
+
+<script>
+    alert ("gaat helemaal goed");
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
+<script>
+
+    function viapostversturen(){
+
+        var dto = {};
+
+        dto.naam = $('#bootviapost').val();
+
+        dto = JSON.stringify(dto);
+
+        $.ajax({
+
+                type: "post",
+
+                url: "/nieuwschaker",
+
+                data: dto,
+
+                contentType : "application/json",
+
+                success: function(result){
+
+                    console.log('gelukt');
+
+                }
+
+        });
+
+
+
+    }
+
+
+
+
+
+    $(document).on('click', '#schakerbutton', function(){
+
+  //          var extraurl = document.getElementById("vakjesnaam").value;
+
+             var extraurl = $('#vakjesnaam').val();
+
+            alert(extraurl);
+
+            $.ajax({
+
+                type: "get",
+
+                url: "/nieuwschaker/"+extraurl,
+
+                success: function(result){
+
+                    returnfunctie(result);
+
+                }
+
+            });
+
+    });
+
+    $(document).on('click','#toonalleschakers', function(){
+
+      $.ajax({
+
+      type:"get",
+
+      url:"/geefalleschakers",
+
+      success: function(result){
+
+       console.log(result);
+
+       ophaalfunctie(result);
+
+      }
+
+     });
+
+    });
+
+
+
+    function returnfunctie(antwoordserver){
+
+       $('#naamschaker').html(antwoordserver.naam);
+
+    }
+
+    function ophaalfunctie(antwoordserverschepen){
+
+      $('#alleschakerstabel').html(antwoordserverschakers);
+
+      var opbouwString = "<table border=1>";
+
+      for( i = 0 ; i < antwoordserverschakers.length ; i++ ){
+
+       opbouwString += "<tr><td>"+antwoordserverschakers[i].naam+"</td></tr>";
+
+      }
+
+      opbouwString += "</table>";
+
+      document.getElementById('alleschakerstabel').innerHTML = opbouwString;
+
+    }
+
+</script>
