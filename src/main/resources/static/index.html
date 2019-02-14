@@ -1,16 +1,16 @@
-<html>
+<>
 <head>
 
 <style>
             div{
-                background-color:    lightgreen;
+                background-color:    orange;
                 padding        :          6px;
                 margin        :          6px;
             }
 
 
             body{
-                background-color: orange;
+                background-color: lightgreen;
             }
         </style>
 
@@ -26,7 +26,8 @@
   //  alert ("gaat helemaal goed");
 </script>
 
-<input type="text" id="vakjesnaamA">
+
+<input type="text" id="vakjesnaamA">  <br />
 <input type="text" id="vakjesnaamB">
 <input type="date" id="vakjesnaamC">
 <input type="number" id="vakjesnaamD">
@@ -148,7 +149,7 @@
 
       for( i = 0 ; i < antwoordserverschakers.length ; i++ ){
 
-       opbouwString += "<tr><td>"+antwoordserverschakers[i].achternaam+"</td></tr>";
+       opbouwString += "<tr><td>"+antwoordserverschakers[i].achternaam+"</td><td>"+antwoordserverschakers[i].voornaam+"</td></tr>";
 
 
       }
