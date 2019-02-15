@@ -1,16 +1,16 @@
-<>
+
 <head>
 
 <style>
             div{
-                background-color:    orange;
+                background-color:    white;
                 padding        :          6px;
                 margin        :          6px;
             }
 
 
             body{
-                background-color: lightgreen;
+                background-color: grey;
             }
         </style>
 
@@ -26,14 +26,19 @@
   //  alert ("gaat helemaal goed");
 </script>
 
-
-<input type="text" id="vakjesnaamA">  <br />
-<input type="text" id="vakjesnaamB">
-<input type="date" id="vakjesnaamC">
-<input type="number" id="vakjesnaamD">
-<input type="number" id="vakjesnaamE">
-<input type="number" id="vakjesnaamF">
-
+<div>
+<input type="text" id="vakjesnaamA" placeholder="Voornaam">
+<br>
+<input type="text" id="vakjesnaamB" placeholder="Achternaam">
+        <br>
+<input type="date" id="vakjesnaamC" placeholder="Geboortedatum">
+        <br>
+<input type="number" id="vakjesnaamD" placeholder="Wins">
+        <br>
+<input type="number" id="vakjesnaamE" placeholder="Ties">
+        <br>
+<input type="number" id="vakjesnaamF" placeholder="Losses">
+</div>
 <input type="button" onclick="viapostversturen()" value="voeg een schaker toe">
 
 <button id="toonalleschakers" >Toon Alle Schakers</button>
@@ -143,8 +148,9 @@
 
       $('#alleschakerstabel').html(antwoordserverschakers);
 
-      var opbouwString = "<table border=1>";
-      var opbouwString = "<table border=1>";
+      var opbouwString ="<table border=2><thead class='thead-light'><tr><th>Achternaam</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Geboortedatum</th><th>Wins</th><th>Ties</th><th>Losses</th><th>Delete</th></tr></thead>";
+      //var opbouwString = "<table border=1>";//
+
 
 
       for( i = 0 ; i < antwoordserverschakers.length ; i++ ){
